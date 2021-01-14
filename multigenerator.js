@@ -1,65 +1,95 @@
+//  q2:"How many strips are on the American Flag?",
+//  choices:["23", "4", "13", "6"],
+//  answer: "13"},
 
-var q1 =("How many dollars is a gallon of milk?");
-var q2=("How many strips are on the American Flag?");
-var q3=("How many stars are on the American Flag?");
-var q4=("How many Bootcamp classes are thier a week?");
-var q5=("What is the average speed limit?");
-var q6=("How many Hours does class last during the week?"); 
+//  q3: "How many stars are on the American Flag?",
+//  hoices:["50", "77", "51", "6"],
+//  answer: "50"},
 
-var wrong =("Wrong Answer");
-var correct =("Correct Answer");
-var userScore= ("You got" + wrong "Answers. And" + correct "Answers.  Your final score is:");
+//  q4:"How many Bootcamp classes are thier a week?",
+//  hoices:["3", "4", "78", "6"],
+//  answer: "3"},
+
+//  q5=("What is the average speed limit?"),
+//  choices:["3", "35", "70", "6"],
+//  answer: "70"}
+
+//  q6=("How many Hours does class last during the week?"), 
+//  hoices:["3", "12", "24", "6"],
+//  answer: "3"
+// };
+
+// created an object for the questions
+var questions = [
+    {
+        currentQuestion:"How many dollars is a gallon of milk?",
+        choices:["3", "4", "10", "6"],
+        answer: "3"},
+    {
+        currentQuestion:"How many strips are on the American Flag?",
+        choices:["23", "4", "13", "6"],
+        answer: "13"},
+    
+]
+
+//initialize data variables
 var userInput= "";
+var correctAns="";
+var wrongAns = "";
+var grades = "";
+var highScore ="";
+var currentQuestion = questions[0];
 
-var a1 =("3");
-var a2 =("13");
-var a3 =("50");
-var a4=("3");
-var a5=("70");
-var a6=("3");
+//grab elements from the dom
+var startbtn =document.querySelector(".start-btn");
+var questionEl = document.querySelector("#questions")
+var reply1 = document.querySelector("#reply1");
+var reply2 = document.querySelector("#reply2");
+var reply3 = document.querySelector("#reply3");
+var reply4 = document.querySelector("#reply4");
+var btnGroup = document.querySelector(".btn-group");
+var confirmation = document.querySelector(".confirmation");
 
-// created an object
+//attach click handlers
+startbtn.addEventListener("click", setCurrentQuestion);
 
-var questions = {
- q1 =("How many dollars is a gallon of milk?"),
- q2=("How many strips are on the American Flag?"),
- q3=("How many stars are on the American Flag?"),
- q4=("How many Bootcamp classes are thier a week?"),
- q5=("What is the average speed limit?"),
- q6=("How many Hours does class last during the week?"), 
-};
+btnGroup.addEventListener("click", function(event){
+    var element = event.target;
+    console.log(element.textContent)
+    userInput = element.textContent
+    if (userInput === correctAns) {
+        confirmation.textContent= "Correct!"
+    } else {
+        confirmation.textContent= "Wrong!"
+    }
 
-var questions = ["q1","q2","q3","q4","q5"];
+    //how do we.....
+    //1. keep track of whatever the current question in our array is
+    //2. update 'currentQuestion' to be a new object every time we answer
+    //3. use the new value for 'currentQuestion' to update the DOM (hint: this is what setCurrentQuestion is for)
+});
 
-//demo//
-var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
-var text = "";
-var i;
-for (i = 0; i < cars.length; i++) {
-  text += cars[i] + "<br>";
-}
-document.getElementById("demo").innerHTML = text;
-
-// I created this for Loop to generate the Quiz questions
-var questions = ["q1","q2","q3","q4","q5"];
-var quiz ="";
-var i;
-for (i = 0; i < questions.length; i++) {
-    quiz += questions[i] + "<br>";
-}
-document.getElementById("questions").innerHTML = quiz;
-
-question = document.querySelector(h5);
-document.body.appendChild(h5)
-
-
-// My function for a timer 
-function setTime(){
-    var timeInterval = setInterval(function() {
-        secondsleft--;
-        timeInterval.textContent = secondsleft + "Time Left"
-    )
+//function that will update the DOM based on the current question
+//We moved this into its own function so we can re-use it every time we need a new question
+function setCurrentQuestion() {
+    questionEl.textContent = currentQuestion.currentQuestion; 
+    correctAns = currentQuestion.answer 
+    console.log(setCurrentQuestion)
+    reply1.textContent = currentQuestion.choices[0];
+    reply2.textContent = currentQuestion.choices[1];
+    reply3.textContent = currentQuestion.choices[2];
+    reply4.textContent = currentQuestion.choices[3];  
 }
 
+ for (var i = 0; i < questions.length; i++) {
+     var nextQuestion = questions.currentQuestion.setCurrentQuestion()
+    textContent=questions.nextQuestion;
+}
 
-var q1answered = (userInput  )
+// // My function for a timer 
+// function setTime(){
+//     var timeInterval = setInterval(function() {
+//         secondsleft--;
+//         timeInterval.textContent = secondsleft + "Time Left"
+//     )
+// }
