@@ -7,6 +7,37 @@
     float: right;
 }
 
+/* .start-btn{ 
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+} */
+.intro {
+  text-align: center;
+  background-color:blue;
+}
+
+#start {display:block;
+  width:100px;
+  margin:0 auto;
+  padding:10px 20px;
+font-size:14px;
+line-height:20px;
+background-color:#eba73c;
+text-align:center;
+color:#fff;
+border-radius:5px;
+text-decoration:none;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+
+}
+    
+
+
+
 .maintext {
     font-weight: bolder;
     font-size: xx-large;
